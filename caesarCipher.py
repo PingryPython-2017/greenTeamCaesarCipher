@@ -9,10 +9,9 @@ def caesar_cipher(text, shift):
 	
 	char = text[0]
 	char = ord(char)
-	if char <= 126 - shift:
-		char += shift
-	elif char <= 126:
-		char = char - 126 + 31 + shift
+	char += shift
+	while char > 126:
+		char -= 95
 	char = chr(char)
 	
 	return char + caesar_cipher(text[1:], shift)
